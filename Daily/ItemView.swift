@@ -16,6 +16,7 @@ struct ItemView: View {
             get: {item.done},
             set: {
                 item.done = $0
+                item.lastCompletedDate = Date()
                 do {
                     try viewContext.save()
                 } catch {

@@ -16,6 +16,7 @@
 		FC307F8629AA8F2C007B2DB9 /* DailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC307F8529AA8F2C007B2DB9 /* DailyTests.swift */; };
 		FC307F9029AA8F2C007B2DB9 /* DailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC307F8F29AA8F2C007B2DB9 /* DailyUITests.swift */; };
 		FC307F9229AA8F2C007B2DB9 /* DailyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC307F9129AA8F2C007B2DB9 /* DailyUITestsLaunchTests.swift */; };
+		FC307FA529AF97FF007B2DB9 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC307FA429AF97FF007B2DB9 /* ItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FC307F8B29AA8F2C007B2DB9 /* DailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC307F8F29AA8F2C007B2DB9 /* DailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUITests.swift; sourceTree = "<group>"; };
 		FC307F9129AA8F2C007B2DB9 /* DailyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC307FA429AF97FF007B2DB9 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				FC307F6E29AA8F2A007B2DB9 /* DailyApp.swift */,
 				FC307F7029AA8F2A007B2DB9 /* ContentView.swift */,
+				FC307FA429AF97FF007B2DB9 /* ItemView.swift */,
 				FC307F7229AA8F2C007B2DB9 /* Assets.xcassets */,
 				FC307F7729AA8F2C007B2DB9 /* Persistence.swift */,
 				FC307F7C29AA8F2C007B2DB9 /* Info.plist */,
@@ -268,6 +271,7 @@
 				FC307F7829AA8F2C007B2DB9 /* Persistence.swift in Sources */,
 				FC307F7B29AA8F2C007B2DB9 /* Daily.xcdatamodeld in Sources */,
 				FC307F7129AA8F2A007B2DB9 /* ContentView.swift in Sources */,
+				FC307FA529AF97FF007B2DB9 /* ItemView.swift in Sources */,
 				FC307F6F29AA8F2A007B2DB9 /* DailyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

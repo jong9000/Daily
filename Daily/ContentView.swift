@@ -15,30 +15,34 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.createdDate, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    @State private var todoText = ""
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Created on \(item.createdDate!, formatter: itemFormatter)")
+            VStack {
+                List {
+                    ForEach(items) { (item: Item) in
+                        ItemView(item: item)
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                Divider()
+                
+                HStack {
+                    TextField("Add new to do...", text: $todoText)
+                    Button {
+                        addItem()
                     } label: {
-                        Text(item.title ?? "")
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 35))
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
+                
+                Divider()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+            .navigationBarTitle("ToDo")
         }
     }
 
@@ -46,7 +50,8 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.createdDate = Date()
-
+            newItem.title = todoText
+            
             do {
                 try viewContext.save()
             } catch {
@@ -73,13 +78,6 @@ struct ContentView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

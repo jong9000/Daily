@@ -51,7 +51,7 @@ struct ContentView: View {
             let newItem = Item(context: viewContext)
             newItem.createdDate = Date()
             newItem.title = todoText
-            
+            todoText = ""
             do {
                 try viewContext.save()
             } catch {

@@ -17,7 +17,8 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     @State private var todoText = ""
-
+    @FocusState private var todoTextIsFocused: Bool
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -31,8 +32,10 @@ struct ContentView: View {
                 
                 HStack {
                     TextField("Add new to do...", text: $todoText)
+                        .focused($todoTextIsFocused)
                     Button {
                         addItem()
+                        todoTextIsFocused = false
                     } label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 35))

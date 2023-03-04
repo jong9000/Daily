@@ -33,7 +33,22 @@ struct ContentView: View {
                 HStack {
                     TextField("Add new to do...", text: $todoText)
                         .focused($todoTextIsFocused)
+                        .onSubmit {
+                            addItem()
+                            todoTextIsFocused = false
+                        }
                     Button {
+                        guard todoTextIsFocused else {
+                            todoTextIsFocused = true
+                            return
+                        }
+  
+                        if todoText == "" && todoTextIsFocused {
+                            print("second conditional")
+                            todoTextIsFocused = false
+                            return
+                        }
+                        
                         addItem()
                         todoTextIsFocused = false
                     } label: {
